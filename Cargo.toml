@@ -1,0 +1,11 @@
+[package]
+name = "refinery"
+version = "0.1.0"
+authors = ["Pang Tun Jiang <pang.tun.jiang@gmail.com>"]
+
+publish = false
+
+[dependencies]
+hyper = "0.11.19"
+futures = "0.1"
+tokio-core = "0.1"
