@@ -7,7 +7,6 @@ use futures::{Future, Stream};
 use hyper::{Client};
 use tokio_core::reactor::Core;
 
-
 fn main()
 {
     let mut core = Core::new().unwrap();
@@ -16,6 +15,7 @@ fn main()
     let client = Client::new(&handle);
 
     // so I can override the parse trait to use the hyper::Uri impl instead
+    // the ::<> bit is known as the "turbofish" syntax (?!)
     let url = "http://api.xivdb.com/item".parse::<hyper::Uri>().unwrap();
 
     let work = client.get(url).and_then(|res|{
@@ -29,5 +29,5 @@ fn main()
         println!("\n\nDone");
     });
 
-    core.run(work).unwrap();
+    // core.run(work).unwrap();
 }
